@@ -1,7 +1,3 @@
-/*function index(req,res) {
-    const posts = "Posts list";
-    res.send(posts);
-}*/
 const connnection = require('../config/configuration')
 const path = require('path')
 const fs = require('fs')
@@ -29,8 +25,7 @@ function display_employee(req, res) {
 function insert_employee(req, res)  {
     const { employee_id,employee_name,qualification } = req.body;
 
-    // if (!req.files)
-    //   return res.status(400).send('No files were uploaded.');
+   
     connection.query('INSERT INTO employee(employee_id,employee_name,qualification) VALUES(?,?,?)', [employee_id,employee_name,qualification], (err, results, fields) => {
         if (err) {
             console.log(err)
@@ -45,11 +40,6 @@ function insert_employee(req, res)  {
         }
 
     })
-
-
-
-
-
 }
 
 module.exports = {
